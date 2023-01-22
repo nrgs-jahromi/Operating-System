@@ -11,8 +11,7 @@ int main(int argc, char *argv[])
     getallprocess.printvectorprs();
     getallprocess.PrintPages();
     std::cout<< Search("A","var4")<<std::endl;
-    //std::cout<<SetFrame()<<std::endl;
-    //void SetFrame();
+    SetFrame();
 
     return 0;
 }

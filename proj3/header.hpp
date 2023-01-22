@@ -9,8 +9,8 @@
 
 struct Page
 {
-    std::string pname=0;
-    int pagenumber=0;
+    std::string pname;
+    int pagenumber;
     std::vector<std::string> varAvailable;
 };
 
@@ -33,10 +33,10 @@ struct frames
     Page ppage;
     bool isempty = true;
 };
-frames MemFrame[10];
+std::array<frames, 10> MemFrames;
 std::vector<Page *> Pageptr;
 std::vector<Var *> prs;
-
+std::vector<pagetable *>page_tables;
 class FileReader
 {
 private:
@@ -224,19 +224,47 @@ int Search(std::string pname, std::string variable)
 
 void SetFrame()
 {
-    int i=0;
+    int i = 0;
     for (auto item : Pageptr)
     {
-        if(MemFrame[i].isempty==true)
+        if (i < 10 && MemFrames[i].isempty)
         {
-            MemFrame[i].pname=item->pname;
-           // MemFrame[i].ppage=item;
-            MemFrame[i].isempty=false;
+            MemFrames[i].pname = item->pname;
+            MemFrames[i].isempty = false;
             i++;
         }
     }
-    std::cout<<i<<std::endl;
+    for (i=0; i<10; i++)
+    {
+        std::cout << "fram : "<<i<<" " << MemFrames[i].pname << " ";
+        
+        std::cout << "\n";
+    }
 
 }
 
+void SetPageTable();
+// {
+//     pagetable *tabel;
+//     std::map<int , int> ptable;
+//     std::string pname;
+//     tabel = new pagetable{pname , ptable};
+//     for (auto item : Pageptr)
+//     {
+//         if(tabel.pname != item->pname)
+//         {
+
+
+//         }
+//         if (i < 10 && MemFrames[i].isempty)
+//         {
+//             MemFrames[i].pname = item->pname;
+//             MemFrames[i].isempty = false;
+//             i++;
+//         }
+//     }
+
+
+    
+//}
 #endif
