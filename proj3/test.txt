@@ -1,13 +1,13 @@
 Process B
-def var1 50
-def var2 50
-def var3 55
-def var4 15
-def var5 5
+def varb1 4
+def varb2 8
+def varb3 300
+def varb4 400
+def varb5 200
 
 Process A
 def var1 5
 def var2 5
-def var3 5
+def var3 390
 def var4 5
 def var5 5

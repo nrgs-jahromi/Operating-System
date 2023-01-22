@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     getallprocess.AnalyzeProcesses();
     getallprocess.printvectorprs();
     getallprocess.PrintPages();
-
+    std::cout<< Search("A","var4")<<std::endl;
 
     return 0;
 }
