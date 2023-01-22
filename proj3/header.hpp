@@ -5,6 +5,7 @@
 #include <sstream>
 #include <vector>
 #include <fstream>
+#include <map>
 
 struct Page
 {
@@ -20,6 +21,19 @@ struct Var
     int variable_size;
 };
 
+struct pagetable
+{
+    std::string pname;
+    std::map <int, int> ptable;
+};
+
+struct frames
+{
+    std::string pname;
+    Page ppage;
+    bool isempty = true;
+};
+frames MemFrame[10];
 std::vector<Page *> Pageptr;
 std::vector<Var *> prs;
 
@@ -205,6 +219,24 @@ int Search(std::string pname, std::string variable)
         }
     }
     return -1;
+}
+
+
+void SetFrame()
+{
+    int i=0;
+    for (auto item : Pageptr)
+    {
+        if(MemFrame[i].isempty==true)
+        {
+            MemFrame[i].pname=item->pname;
+           // MemFrame[i].ppage=item;
+            MemFrame[i].isempty=false;
+            i++;
+        }
+    }
+    std::cout<<i<<std::endl;
+
 }
 
 #endif

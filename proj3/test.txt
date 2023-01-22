@@ -1,9 +1,9 @@
 Process B
-def varb1 4
-def varb2 8
-def varb3 300
-def varb4 400
-def varb5 200
+def var1 4
+def var2 8
+def var3 300
+def var4 400
+def var5 200
 
 Process A
 def var1 5
